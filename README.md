@@ -1,8 +1,9 @@
-# Properties Near a School — Singapore
+# Kiasu School 🏫
 
-A static web app that shows **HDB blocks** (and optionally private/named buildings)
-within a **1 km or 2 km circle** around any address — built for families checking
-school proximity for P1 admission.
+*"Kiasu"* — because P1 registration season is pure kiasu culture. A static web app
+that shows **HDB blocks** (and optionally private/named buildings) within a
+**1 km or 2 km circle** around any address — built for families checking school
+proximity for P1 admission.
 
 > ⚠️ **Not an admission tool.** MOE does not publish official catchment zones.
 > P1 priority is proximity-based (1 km is the traditional threshold) plus other
@@ -13,7 +14,7 @@ school proximity for P1 admission.
 Any static file server works:
 
 ```bash
-cd school-property-map
+cd kiasu-school
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
