@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Properties Near a School — Singapore</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+<div id="app">
+  <aside id="panel">
+    <div class="panel-inner">
+      <h1>🏫 Properties near a school</h1>
+      <p class="sub">HDB blocks (and optionally private buildings) within a 1 km or 2 km circle. For school-proximity reference only — MOE does not publish official catchment zones.</p>
+
+      <div class="field">
+        <label for="school-pick">Quick pick a primary school</label>
+        <select id="school-pick"><option value="">— choose a school —</option></select>
+      </div>
+
+      <div class="field">
+        <label for="addr">School / address</label>
+        <div class="row">
+          <input id="addr" type="text" placeholder="e.g. Ang Mo Kio Primary School" />
+          <button id="locate-btn" class="primary">Locate</button>
+        </div>
+        <div id="geocode-status" class="muted small"></div>
+      </div>
+
+      <div class="field">
+        <label>Radius</label>
+        <div class="row gap">
+          <label class="radio"><input type="radio" name="radius" value="1000" /> 1 km</label>
+          <label class="radio"><input type="radio" name="radius" value="2000" checked /> 2 km</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="check"><input type="checkbox" id="hdb-toggle" checked /> HDB blocks <span class="muted small">(data.gov.sg / HDB)</span></label>
+        <label class="check"><input type="checkbox" id="private-toggle" /> Private & other named buildings <span class="muted small">(OpenStreetMap)</span></label>
+        <label class="check"><input type="checkbox" id="schools-toggle" /> Show all primary schools <span class="muted small">(MOE via data.gov.sg)</span></label>
+      </div>
+
+      <details class="advanced">
+        <summary>Advanced</summary>
+        <div class="field">
+          <label for="onemap-token">OneMap token <span class="muted small">(optional, better SG geocoding)</span></label>
+          <input id="onemap-token" type="text" placeholder="paste OneMap API token" />
+          <div class="muted small">Get a free token at onemap.gov.sg. Saved in your browser only. Falls back to Nominatim (OSM) if empty or on error.</div>
+        </div>
+      </details>
+
+      <div id="status" class="muted small"></div>
+
+      <div class="count" id="count"></div>
+
+      <div id="list"></div>
+    </div>
+  </aside>
+  <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
